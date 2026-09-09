@@ -32,7 +32,7 @@
   какую бы владелец кому ни отправил (см. DEPLOY.md):
     · https://talk-finance.github.io — публичный адрес, репозиторий
       talk-finance/talk-finance.github.io, доступ по ключу развёртывания;
-    · https://89-169-180-149.sslip.io/lp/ — тот же файл на сервере «Толка».
+    · https://talk-finance.ru/lp/ — тот же файл на сервере «Толка».
   Адреса внутри страницы намеренно полные: относительные ссылки на GitHub
   указывали бы на сам лендинг, а не на приложение.
 
@@ -234,7 +234,7 @@
     </div>
     <p class="hero__note">Демо открывается за одно нажатие — без регистрации и без ваших цифр.
       Сейчас идёт пилот: участие бесплатное.<br />
-      Нет Telegram или не хотите его открывать? <a href="https://89-169-180-149.sslip.io/">Откройте Толк прямо в браузере</a>.</p>
+      Нет Telegram или не хотите его открывать? <a href="https://talk-finance.ru/">Откройте Толк прямо в браузере</a>.</p>
   </div>
 </header>
 
@@ -441,7 +441,7 @@
       <p>Откройте Толк в Telegram. Внутри есть демо-компании — можно посмотреть
         прямо сейчас, ничего не загружая.</p>
       <a class="btn btn--ghost" href="https://t.me/TalkFinance_bot/app" target="_blank" rel="noopener">Открыть Толк в Telegram</a>
-      <p style="margin:18px 0 0;font-size:15px"><a href="https://89-169-180-149.sslip.io/" style="color:#fff;text-decoration:underline">Или открыть в браузере — без Telegram</a></p>
+      <p style="margin:18px 0 0;font-size:15px"><a href="https://talk-finance.ru/" style="color:#fff;text-decoration:underline">Или открыть в браузере — без Telegram</a></p>
     </div>
   </div>
 </section>
@@ -473,7 +473,7 @@
 
   function отметить(событие) {
     try {
-      fetch('https://89-169-180-149.sslip.io/api/hit?e=' + событие + '&s=' + encodeURIComponent(source),
+      fetch('https://talk-finance.ru/api/hit?e=' + событие + '&s=' + encodeURIComponent(source),
             { keepalive: true, cache: 'no-store' }).catch(function () {});
     } catch (e) {}
   }
@@ -492,7 +492,7 @@
     // отдельного названия события у счётчика пока нет — чтобы отличать этот путь
     // от телеграмного, в HIT_EVENTS нужно добавить слово «browser»
     // (см. qa/_ux/2026-08-15/03_ПЕРЕДАЧА_РАБОТЫ.md).
-    if (href.indexOf('89-169-180-149.sslip.io/') > -1 && href.indexOf('/api/') < 0) return отметить('demo');
+    if (href.indexOf('talk-finance.ru/') > -1 && href.indexOf('/api/') < 0) return отметить('demo');
   }, true);
 })();
 </script>
