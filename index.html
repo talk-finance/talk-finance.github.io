@@ -32,7 +32,8 @@
   какую бы владелец кому ни отправил (см. DEPLOY.md):
     · https://talk-finance.github.io — публичный адрес, репозиторий
       talk-finance/talk-finance.github.io, доступ по ключу развёртывания;
-    · https://talk-finance.ru/lp/ — тот же файл на сервере «Толка».
+    · https://talk-finance.ru/ — этот же файл на сервере «Толка» (прежний адрес
+    https://talk-finance.ru/lp/ тоже открывается).
   Адреса внутри страницы намеренно полные: относительные ссылки на GitHub
   указывали бы на сам лендинг, а не на приложение.
 
@@ -114,7 +115,11 @@
 
   /* Первый экран */
   header.hero{background:linear-gradient(180deg,#ffffff,#f2f6f4);border-bottom:1px solid var(--line)}
-  .hero__inner{padding:56px 0 48px;text-align:center}
+  .topbar{display:flex;justify-content:flex-end;padding-top:16px}
+  .topbar__login{font-family:var(--f-display);font-weight:700;font-size:15px;
+    color:var(--teal-ink);background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:9px 18px}
+  .hero__inner{padding:32px 0 48px;text-align:center}
   .brand{display:inline-flex;justify-content:center;margin-bottom:22px}
   h1{font-size:46px;line-height:1.08;margin:0 0 16px}
   .hero__lead{font-size:19px;color:#3a3d42;max-width:660px;margin:0 auto 28px}
@@ -218,6 +223,12 @@
 
 <!-- ============ 1. ПЕРВЫЙ ЭКРАН ============ -->
 <header class="hero">
+  <!-- 09.09.2026: короткий адрес talk-finance.ru ведёт на этот рассказ, а сама
+       программа переехала на /app/. Тому, кто уже пользуется Толком, нужен вход
+       с первого экрана — иначе он каждый раз будет читать рассказ для новичков. -->
+  <div class="wrap topbar">
+    <a class="topbar__login" href="https://talk-finance.ru/app/">Войти в Толк</a>
+  </div>
   <div class="wrap hero__inner">
     <div class="brand">
       <span class="tolk-logo" style="font-size:34px" role="img" aria-label="ТОЛК">
@@ -234,7 +245,7 @@
     </div>
     <p class="hero__note">Демо открывается за одно нажатие — без регистрации и без ваших цифр.
       Сейчас идёт пилот: участие бесплатное.<br />
-      Нет Telegram или не хотите его открывать? <a href="https://talk-finance.ru/">Откройте Толк прямо в браузере</a>.</p>
+      Нет Telegram или не хотите его открывать? <a href="https://talk-finance.ru/app/">Откройте Толк прямо в браузере</a>.</p>
   </div>
 </header>
 
@@ -441,7 +452,7 @@
       <p>Откройте Толк в Telegram. Внутри есть демо-компании — можно посмотреть
         прямо сейчас, ничего не загружая.</p>
       <a class="btn btn--ghost" href="https://t.me/TalkFinance_bot/app" target="_blank" rel="noopener">Открыть Толк в Telegram</a>
-      <p style="margin:18px 0 0;font-size:15px"><a href="https://talk-finance.ru/" style="color:#fff;text-decoration:underline">Или открыть в браузере — без Telegram</a></p>
+      <p style="margin:18px 0 0;font-size:15px"><a href="https://talk-finance.ru/app/" style="color:#fff;text-decoration:underline">Или открыть в браузере — без Telegram</a></p>
     </div>
   </div>
 </section>
@@ -492,7 +503,7 @@
     // отдельного названия события у счётчика пока нет — чтобы отличать этот путь
     // от телеграмного, в HIT_EVENTS нужно добавить слово «browser»
     // (см. qa/_ux/2026-08-15/03_ПЕРЕДАЧА_РАБОТЫ.md).
-    if (href.indexOf('talk-finance.ru/') > -1 && href.indexOf('/api/') < 0) return отметить('demo');
+    if (href.indexOf('talk-finance.ru/app') > -1 && href.indexOf('/api/') < 0) return отметить('demo');
   }, true);
 })();
 </script>
